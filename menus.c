@@ -18,6 +18,26 @@ void menuNumeros()
         break;
     case 2:
         // Função geração crescente
+        //F: Chamo a função ou coloco ela inteira aq?
+        /*
+        Vou deixar ela aq pra tu dar uma olhada.
+        void ordemCrescente(int n) {
+            FILE *arqv;
+            arqv = fopen("ListaCrescente.txt", "w");
+            if (arqv == NULL) {
+                printf("Erro ao abrir o arquivo\n");
+                exit(1);
+            }
+            for (int i = 0; i < n; i++) {
+                if (fprintf(arqv, "%d\n", i + 1) < 0) {
+                    printf("Erro ao escrever no arquivo\n");
+                    fclose(arqv);
+                    exit(1);
+                }
+            }
+            fclose(arqv);
+        }
+        */
         break;
     case 3:
         // Função geração decrescente
