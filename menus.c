@@ -1,6 +1,7 @@
 #include <stdio.h>
+#include "geracaoNumeros.h"
 
-void menuNumeros()
+void menuNumeros(int tam)
 {
     int op = 0;
     printf("----------MENU----------\n");
@@ -18,26 +19,7 @@ void menuNumeros()
         break;
     case 2:
         // Função geração crescente
-        //F: Chamo a função ou coloco ela inteira aq?
-        /*
-        Vou deixar ela aq pra tu dar uma olhada.
-        void ordemCrescente(int n) {
-            FILE *arqv;
-            arqv = fopen("ListaCrescente.txt", "w");
-            if (arqv == NULL) {
-                printf("Erro ao abrir o arquivo\n");
-                exit(1);
-            }
-            for (int i = 0; i < n; i++) {
-                if (fprintf(arqv, "%d\n", i + 1) < 0) {
-                    printf("Erro ao escrever no arquivo\n");
-                    fclose(arqv);
-                    exit(1);
-                }
-            }
-            fclose(arqv);
-        }
-        */
+        ordemCrescente(tam);
         break;
     case 3:
         // Função geração decrescente
@@ -46,6 +28,40 @@ void menuNumeros()
         printf("\nErro, opção inválida\n");
         break;
     }
+}
+
+void menuTamEntrada()
+{
+    int op = 0;
+    int tam = 0;
+    printf("----------MENU----------\n");
+    printf("1 - Tamanho 1000\n");
+    printf("2 - Tamanho 10000\n");
+    printf("3 - Tamanho 100000\n");
+    printf("------------------------\n");
+    printf("Opção: ");
+    scanf(" %d", &op);
+
+    switch (op)
+    {
+    case 1:
+        // Tamanho 1000
+        tam = 1000;
+        break;
+    case 2:
+        // Tamanho 10000
+        tam = 10000;
+        break;
+    case 3:
+        // Tamanho 100000
+        tam = 100000;
+        break;
+    default:
+        printf("\nErro, opção inválida\n");
+        break;
+    }
+
+    menuNumeros(tam);
 }
 
 void menuOrdenacao()

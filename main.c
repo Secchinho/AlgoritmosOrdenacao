@@ -2,9 +2,11 @@
 #include <stdlib.h>
 #include "menus.h"
 
-// Fiz um menu básico aqui, ainda precisa ser ajeitado
-// Falta colocar um loop pro programa não finalizar após a execução e também não sei se esse menu vai ser fácil de integrar aos algoritmos
-// Fiz ele mais pra podermos testar os algoritmos que quisermos e já ir adiantando um menu ao mesmo tempo.
+/*
+    Mudei a entrada do menu, porque quando fiz o menu esqueci que precisávamos de 1000, 10000 e 100000 como opção de entrada kakakakakakakak
+    Agora coloquei essa opção, não me agradou ter que chamar a função no arquivo menus.c 3 vezes, mesmo que em condicional, ainda vou pensar em como solucionar, se tiver
+    uma ideia, sinta-se a vontade para resolver lá.
+*/
 
 int main()
 {
@@ -21,7 +23,7 @@ int main()
     switch (op)
     {
     case 1:
-        menuNumeros();
+        menuTamEntrada();
         break;
     case 2:
         menuOrdenacao();
