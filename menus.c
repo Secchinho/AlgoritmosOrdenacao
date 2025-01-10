@@ -16,6 +16,7 @@ void menuNumeros(int tam)
     {
     case 1:
         // Função geração aleatória
+        ordemAleatoria(tam);
         break;
     case 2:
         // Função geração crescente
