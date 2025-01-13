@@ -1,9 +1,11 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include "geracaoNumeros.h"
 #include "algoritmos.h"
 
 void menuNumeros(int tam)
 {
+    system("clear");
     int op = 0;
     printf("----------MENU----------\n");
     printf("1 - Ordem Aleatória\n");
@@ -25,6 +27,7 @@ void menuNumeros(int tam)
         break;
     case 3:
         // Função geração decrescente
+        ordemDecrescente(tam);
         break;
     default:
         printf("\nErro, opção inválida\n");
@@ -95,12 +98,15 @@ void menuOrdenacao()
         break;
     case 2:
         // Ordenação Bolha com Parada
+        void bolhaComParada(vetor, tamanho);
         break;
     case 3:
         // Inserção Direta
+        void insercaoDireta(vetor, tamanho);
         break;
     case 4:
         // Inserção Binária
+        void insercaoBinaria(vetor, tamanho);
         break;
     case 5:
         // ShellSort
