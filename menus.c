@@ -91,7 +91,7 @@ void menuOrdenacao()
     {
     case 1:
         // Ordenação Bolha
-        void bolha();
+        void bolha(vetor, tamanho);
         break;
     case 2:
         // Ordenação Bolha com Parada
