@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include "geracaoNumeros.h"
+#include "algoritmos.h"
 
 void menuNumeros(int tam)
 {
@@ -90,6 +91,7 @@ void menuOrdenacao()
     {
     case 1:
         // Ordenação Bolha
+        void bolha();
         break;
     case 2:
         // Ordenação Bolha com Parada
