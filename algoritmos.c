@@ -23,3 +23,24 @@ void bolha(int *vetor, int n){
     printf("\n\n  %f seg.\n", ((double) (end - start)) / CLOCKS_PER_SEC);
 }
 
+void insercaoDireta(int *vetor, int n){
+    clock_t start, end;
+    start = clock();
+    int i, auxiliar, j;
+    for(i=1; i<n; i++)
+    {
+        auxiliar = vetor[i];
+        j = i-1;
+        while(j>=0 && vetor[j]>auxiliar)
+        {
+            vetor[j+1] = vetor[j];
+            j--;
+        }
+        if(j != i-1)
+        {
+            vetor[j+1] = auxiliar;
+        }
+    }
+    end = clock();
+    printf("\n\n  %f seg.\n", ((double) (end - start)) / CLOCKS_PER_SEC);
+}
