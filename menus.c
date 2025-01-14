@@ -35,42 +35,9 @@ void menuNumeros(int tam)
     }
 }
 
-void menuTamEntrada()
+void menuOrdenacao(int tamanho)
 {
-    int op = 0;
-    int tam = 0;
-    printf("----------MENU----------\n");
-    printf("1 - Tamanho 1000\n");
-    printf("2 - Tamanho 10000\n");
-    printf("3 - Tamanho 100000\n");
-    printf("------------------------\n");
-    printf("Opção: ");
-    scanf(" %d", &op);
-
-    switch (op)
-    {
-    case 1:
-        // Tamanho 1000
-        tam = 1000;
-        break;
-    case 2:
-        // Tamanho 10000
-        tam = 10000;
-        break;
-    case 3:
-        // Tamanho 100000
-        tam = 100000;
-        break;
-    default:
-        printf("\nErro, opção inválida\n");
-        break;
-    }
-
-    menuNumeros(tam);
-}
-
-void menuOrdenacao()
-{
+    system("clear");
     int op = 0;
     printf("----------MENU----------\n");
     printf("1 - Bolha\n");
@@ -114,6 +81,7 @@ void menuOrdenacao()
         break;
     case 6:
         // Seleção Direta
+        void selecaoDireta(vetor, tamanho);
         break;
     case 7:
         // HeapSort
@@ -139,5 +107,50 @@ void menuOrdenacao()
     default:
         printf("\nErro, opção inválida\n");
         break;
+    }
+}
+
+void menuTamEntrada(int opcao)
+{
+    int op = 0;
+    int tam = 0;
+    printf("----------MENU----------\n");
+    printf("1 - Tamanho 1000\n");
+    printf("2 - Tamanho 10000\n");
+    printf("3 - Tamanho 100000\n");
+    printf("------------------------\n");
+    printf("Opção: ");
+    scanf(" %d", &op);
+
+    switch (op)
+    {
+    case 1:
+        // Tamanho 1000
+        tam = 1000;
+        break;
+    case 2:
+        // Tamanho 10000
+        tam = 10000;
+        break;
+    case 3:
+        // Tamanho 100000
+        tam = 100000;
+        break;
+    default:
+        printf("\nErro, opção inválida\n");
+        break;
+    }
+
+    if(opcao == 1)
+    {
+        menuNumeros(tam);
+    }
+    else if(opcao == 2)
+    {
+        menuOrdenacao(tam);
+    }
+    else 
+    {
+        printf("\nOpção inválida!");
     }
 }

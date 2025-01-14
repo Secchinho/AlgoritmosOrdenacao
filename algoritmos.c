@@ -141,3 +141,31 @@ void shellsort(int *vetor, int n)
     end = clock();
     printf("\n  %f seg.\n\n", ((double) (end - start)) / CLOCKS_PER_SEC);
 }
+
+void selecaoDireta(int *vetor, int n)
+{
+    clock_t start, end;
+    start = clock();
+    int menor = 0;
+    int aux = 0;
+    for(int i = 0; i <= (n - 1); i++)
+    {
+        menor = i;
+        for(int j = (i+1); j < n; j++)
+        {
+            if(vetor[j] < vetor[menor])
+            {
+                menor = j;
+            }
+        }
+
+        if(i != menor)
+        {
+            aux = vetor[i];
+            vetor[i] = vetor[menor];
+            vetor[menor] = aux;
+        }
+    }
+    end = clock();
+    printf("\n  %f seg.\n\n", ((double) (end - start)) / CLOCKS_PER_SEC);
+}

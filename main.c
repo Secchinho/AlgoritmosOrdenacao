@@ -14,17 +14,6 @@ int main()
 
     system("clear");
 
-    switch (op)
-    {
-    case 1:
-        menuTamEntrada();
-        break;
-    case 2:
-        menuOrdenacao();
-        break;
-    default:
-        printf("\nErro, opção inválida!\n");
-        break;
-    }
+    menuTamEntrada(op);
     return 0;
 }
