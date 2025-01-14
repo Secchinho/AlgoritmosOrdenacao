@@ -85,6 +85,7 @@ void menuOrdenacao(int tamanho)
         break;
     case 7:
         // HeapSort
+        void heapsort(vetor, tamanho);
         break;
     case 8:
         // QuickSort Início

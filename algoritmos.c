@@ -142,6 +142,52 @@ void shellsort(int *vetor, int n)
     printf("\n  %f seg.\n\n", ((double) (end - start)) / CLOCKS_PER_SEC);
 }
 
+void criaHeap(int *vetor, int i, int f)
+{
+    int aux = vetor[i], j = i * 2 + 1;
+    while (j <= f)
+    {
+        if (j < f)
+        {
+            if (vetor[j] < vetor[j+1])
+            {
+                j++;
+            }
+        }
+        if (aux < vetor[j])
+        {
+            vetor[i] = vetor[j];
+            i = j;
+            j = 2*i+1;
+        }
+        else
+        {
+            j = f+1;
+        }
+    }
+    vetor[i] = aux;
+}
+
+void heapsort(int *vetor, int n)
+{
+    clock_t start, end;
+    start = clock();
+    int aux;
+    for (int i = (n-1)/2; i >= 0; i--)
+    {
+        criaHeap(vetor, i, n-1);
+    }
+    for (int i = n-1; i > 0; i--)
+    {
+        aux = vetor[0];
+        vetor[0] = vetor[i];
+        vetor[i] = aux;
+        criaHeap(vetor, 0, i-1);
+    }
+    end = clock();
+    printf("\n  %f seg.\n\n", ((double) (end - start)) / CLOCKS_PER_SEC);
+}
+
 void selecaoDireta(int *vetor, int n)
 {
     clock_t start, end;
