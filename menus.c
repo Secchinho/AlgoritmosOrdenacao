@@ -110,6 +110,7 @@ void menuOrdenacao()
         break;
     case 5:
         // ShellSort
+        void shellsort(vetor, tamanho);
         break;
     case 6:
         // Seleção Direta
