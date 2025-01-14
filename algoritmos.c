@@ -113,3 +113,31 @@ void insercaoBinaria(int *vet, int n)
     printf("\n\n  %f seg.\n", ((double) (end - start)) / CLOCKS_PER_SEC);
 
 }
+
+void shellsort(int *vetor, int n)
+{
+    clock_t start, end;
+    start = clock();
+    int i, j, h = 1, aux;
+    while (h < n)
+    {
+        h = 3 * h + 1;
+    }
+    while (h > 1)
+    {
+        h /= 3;
+        for (i = h; i < n; i++)
+        {
+            aux = vetor[i];
+            j = i - h;
+            while (j >= 0 && aux < vetor[j])
+            {
+                vetor[j+h] = vetor[j];
+                j -= h;
+            }
+            vetor[j+h] = aux;
+        }
+    }
+    end = clock();
+    printf("\n  %f seg.\n\n", ((double) (end - start)) / CLOCKS_PER_SEC);
+}
