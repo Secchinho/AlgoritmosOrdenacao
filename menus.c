@@ -92,12 +92,14 @@ void menuOrdenacao(int tamanho)
         break;
     case 9:
         // QuickSort Centro
+        void quicksortCentro(vetor, 0, tamanho);
         break;
     case 10:
         // QuickSort Mediana
         break;
     case 11:
         // MergeSort
+        void mergesort(vetor, 0, tamanho);
         break;
     case 12:
         // RadixSort
