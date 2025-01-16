@@ -97,6 +97,7 @@ void menuOrdenacao(int tamanho)
         break;
     case 10:
         // QuickSort Mediana
+        void quicksortMediana(int *vetor, int esq, int dir);
         break;
     case 11:
         // MergeSort

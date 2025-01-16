@@ -7,6 +7,8 @@ void criaHeap(int *vetor, int i, int f);
 void heapsort(int *vetor, int n);
 void selecaoDireta(int *vetor, int n);
 void quicksortIni(int *vetor, int esq, int dir);
+int mediana(int *vetor, int esq, int dir);
+void quicksortMediana(int *vetor, int esq, int dir);
 void particao(int *vetor, int esquerda, int direita, int *i, int *j);
 void ordena(int *vetor, int esquerda, int direita);
 void quicksortCentro(int *vetor, int esquerda, int direita);

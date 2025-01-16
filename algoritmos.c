@@ -253,6 +253,65 @@ void quicksortIni(int *vetor, int esq, int dir)
     printf("\n  %f seg.\n\n", ((double) (end - start)) / CLOCKS_PER_SEC);
 }
 
+int mediana(int *vetor, int esq, int dir)
+{
+    int meio = esq + (dir - esq) / 2;
+
+    // Ordenando os três elementos selecionados
+    if (vetor[esq] > vetor[meio]) {
+        int temp = vetor[esq];
+        vetor[esq] = vetor[meio];
+        vetor[meio] = temp;
+    }
+    if (vetor[esq] > vetor[dir]) {
+        int temp = vetor[esq];
+        vetor[esq] = vetor[dir];
+        vetor[dir] = temp;
+    }
+    if (vetor[meio] > vetor[dir]) {
+        int temp = vetor[meio];
+        vetor[meio] = vetor[dir];
+        vetor[dir] = temp;
+    }
+
+    return meio;
+}
+
+void quicksortMediana(int *vetor, int esq, int dir) {
+    if (esq < dir) {
+        
+        int mediana = mediana(vetor, esq, dir);
+
+        int aux = vetor[esq];
+        vetor[esq] = vetor[mediana];
+        vetor[mediana] = aux;
+
+        int pivo = vetor[esq];
+        int i = esq + 1;
+        int j = dir;
+
+        while (i <= j) {
+            while (i <= j && vetor[i] <= pivo) {
+                i++;
+            }
+            while (i <= j && vetor[j] > pivo) {
+                j--;
+            }
+            if (i < j) {
+                // Troca os elementos fora de ordem
+                int temp = vetor[i];
+                vetor[i] = vetor[j];
+                vetor[j] = temp;
+            }
+        }
+        vetor[esq] = vetor[j];
+        vetor[j] = pivo;
+
+        quicksortMediana(vetor, esq, j - 1);
+        quicksortMediana(vetor, j + 1, dir);
+    }
+}
+
 void particao(int *vetor, int esquerda, int direita, int *i, int *j)
 {
     *i = esquerda; 
