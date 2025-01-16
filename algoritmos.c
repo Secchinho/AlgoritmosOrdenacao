@@ -215,3 +215,96 @@ void selecaoDireta(int *vetor, int n)
     end = clock();
     printf("\n  %f seg.\n\n", ((double) (end - start)) / CLOCKS_PER_SEC);
 }
+
+void particao(int *vetor, int esquerda, int direita, int *i, int *j)
+{
+    *i = esquerda; 
+    *j = direita; 
+    int aux, pivo = vetor[(esquerda+direita)/2];
+    while (*i <= *j)
+    {
+        while (vetor[*i] < pivo && *i < direita)
+        {
+            (*i)++;
+        }
+        while (vetor[*j] > pivo && *j > esquerda)
+        {
+            (*j)--;
+        }
+        if (*i <= *j)
+        {
+            aux = vetor[*i];
+            vetor[*i] = vetor[*j];
+            vetor[*j] = aux;
+            (*i)++;
+            (*j)--;
+        }
+    }
+}
+
+void ordena(int *vetor, int esquerda, int direita)
+{
+    int i, j;
+    particao(vetor, esquerda, direita, &i, &j);
+    if (i < direita)
+    {
+        ordena(vetor, i, direita);
+    }
+    if (j > esquerda)
+    {
+        ordena(vetor, esquerda, j);
+    }
+}
+
+void quicksortCentro(int *vetor, int esquerda, int direita)
+{
+    clock_t start, end;
+    start = clock();
+    ordena(vetor, esquerda, direita);
+    end = clock();
+    printf("\n  %f seg.\n\n", ((double) (end - start)) / CLOCKS_PER_SEC);
+}
+
+void merge(int *vetor, int inicio, int fim)
+{
+    if (inicio < fim)
+    {
+        int meio = (inicio+fim)/2;
+        merge(vetor, inicio, meio);
+        merge(vetor, meio+1, fim);
+        intercalar(vetor, inicio, fim, meio);
+    }
+}
+
+void mergesort(int *vetor, int inicio, int fim)
+{
+    clock_t start, end;
+    start = clock();
+    merge(vetor, inicio, fim);
+    end = clock();
+    printf("\n  %f seg.\n\n", ((double) (end - start)) / CLOCKS_PER_SEC);
+}
+
+void intercalar(int *vetor, int inicio, int fim, int meio)
+{
+    int i=inicio, j=meio+1, k=0, tmp[fim+1];
+    while (i <= meio || j <= fim)
+    {
+        if (i == meio+1 || (vetor[j] < vetor[i] && j != fim+1))
+        {
+            tmp[k] = vetor[j];
+            j++;
+            k++;
+        }
+        else
+        {
+            tmp[k] = vetor[i];
+            i++;
+            k++;
+        }
+    }
+    for (i = inicio; i <= fim; i++)
+    {
+        vetor[i] = tmp[i-inicio];
+    }
+}
