@@ -108,6 +108,7 @@ void menuOrdenacao(int tamanho)
         break;
     case 13:
         // BucketSort
+        void bucketsort(vetor, tamanho);
         break;
     default:
         printf("\nErro, opção inválida\n");
