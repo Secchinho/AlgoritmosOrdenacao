@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <stdbool.h>
 #include <time.h>
+#include "algoritmos.h"
 
 void bolha(int *vetor, int n){
     clock_t start, end;
@@ -20,7 +21,7 @@ void bolha(int *vetor, int n){
         }
     }
     end = clock();
-    printf("\n\n  %f seg.\n", ((double) (end - start)) / CLOCKS_PER_SEC);
+    printf("\nBolha com %d elementos\nTempo de execucao: %f segundos\n\n", n , ((double)(end - start)) / CLOCKS_PER_SEC);
 }
 
 void bolhaComParada(int *vetor, int n)
@@ -49,7 +50,7 @@ void bolhaComParada(int *vetor, int n)
         ultimoIndex = novoUltimoIndex;
     }
     end = clock();
-    printf("\n\n  %f seg.\n", ((double) (end - start)) / CLOCKS_PER_SEC);
+    printf("\nBolha(com parada) com %d elementos\nTempo de execucao: %f segundos\n\n", n , ((double)(end - start)) / CLOCKS_PER_SEC);
 }
 
 void insercaoDireta(int *vetor, int n){
@@ -71,7 +72,7 @@ void insercaoDireta(int *vetor, int n){
         }
     }
     end = clock();
-    printf("\n\n  %f seg.\n", ((double) (end - start)) / CLOCKS_PER_SEC);
+    printf("\nInsercao Direta com %d elementos\nTempo de execucao: %f segundos\n\n", n , ((double)(end - start)) / CLOCKS_PER_SEC);
 }
 
 void insercaoBinaria(int *vet, int n)
@@ -110,7 +111,7 @@ void insercaoBinaria(int *vet, int n)
     }
 
     end = clock();
-    printf("\n\n  %f seg.\n", ((double) (end - start)) / CLOCKS_PER_SEC);
+    printf("\nInsercao Binaria com %d elementos\nTempo de execucao: %f segundos\n\n", n , ((double)(end - start)) / CLOCKS_PER_SEC);
 
 }
 
@@ -139,7 +140,7 @@ void shellsort(int *vetor, int n)
         }
     }
     end = clock();
-    printf("\n  %f seg.\n\n", ((double) (end - start)) / CLOCKS_PER_SEC);
+    printf("\nShellsort com %d elementos\nTempo de execucao: %f segundos\n\n", n , ((double)(end - start)) / CLOCKS_PER_SEC);
 }
 
 void criaHeap(int *vetor, int i, int f)
@@ -185,7 +186,7 @@ void heapsort(int *vetor, int n)
         criaHeap(vetor, 0, i-1);
     }
     end = clock();
-    printf("\n  %f seg.\n\n", ((double) (end - start)) / CLOCKS_PER_SEC);
+    printf("\nHeapsort com %d elementos\nTempo de execucao: %f segundos\n\n", n , ((double)(end - start)) / CLOCKS_PER_SEC);
 }
 
 void selecaoDireta(int *vetor, int n)
@@ -213,7 +214,7 @@ void selecaoDireta(int *vetor, int n)
         }
     }
     end = clock();
-    printf("\n  %f seg.\n\n", ((double) (end - start)) / CLOCKS_PER_SEC);
+    printf("\nSelecao Direta com %d elementos\nTempo de execucao: %f segundos\n\n", n , ((double)(end - start)) / CLOCKS_PER_SEC);
 }
 
 void particao(int *vetor, int esquerda, int direita, int *i, int *j)
@@ -262,7 +263,7 @@ void quicksortCentro(int *vetor, int esquerda, int direita)
     start = clock();
     ordena(vetor, esquerda, direita);
     end = clock();
-    printf("\n  %f seg.\n\n", ((double) (end - start)) / CLOCKS_PER_SEC);
+    printf("\nQuicksort Centro com %d elementos\nTempo de execucao: %f segundos\n\n", direita+1 , ((double)(end - start)) / CLOCKS_PER_SEC);
 }
 
 void merge(int *vetor, int inicio, int fim)
@@ -282,7 +283,7 @@ void mergesort(int *vetor, int inicio, int fim)
     start = clock();
     merge(vetor, inicio, fim);
     end = clock();
-    printf("\n  %f seg.\n\n", ((double) (end - start)) / CLOCKS_PER_SEC);
+    printf("\nMergesort com %d elementos\nTempo de execucao: %f segundos\n\n", fim+1 , ((double)(end - start)) / CLOCKS_PER_SEC);
 }
 
 void intercalar(int *vetor, int inicio, int fim, int meio)
@@ -343,7 +344,7 @@ void quicksortIni(int *vetor, int esq, int dir)
         quicksortIni(vetor, i + 1; dir);
     }
     end = clock();
-    printf("\n  %f seg.\n\n", ((double) (end - start)) / CLOCKS_PER_SEC);
+    printf("\nQuicksort Inicio com %d elementos\nTempo de execucao: %f segundos\n\n", dir+1 , ((double)(end - start)) / CLOCKS_PER_SEC);
 }
 
 int mediana(int *vetor, int esq, int dir)
@@ -403,4 +404,60 @@ void quicksortMediana(int *vetor, int esq, int dir) {
         quicksortMediana(vetor, esq, j - 1);
         quicksortMediana(vetor, j + 1, dir);
     }
+}
+
+void bucketsort(int *vetor, int n)
+{
+    clock_t start, end;
+    start = clock();
+
+    int maior=0;
+    for (int i = 0; i < n; i++)
+    {
+        if (vetor[i] > maior)
+        {
+            maior  = vetor[i];
+        }
+    }
+    int numeroBaldes = (maior/10)+1;
+    baldes *b = (baldes *)malloc(numeroBaldes * sizeof(baldes));
+    if (b == NULL) {
+        printf("Erro ao alocar memória para os baldes!\n");
+        exit(1);
+    }
+    for (int i = 0; i < numeroBaldes; i++)
+    {
+        b[i].topo = 0;
+        b[i].balde = (int *)malloc(10 * sizeof(int));
+        if (b[i].balde == NULL) {
+            printf("Erro ao alocar memória para o balde %d!\n", i);
+            exit(1);
+        }
+    }
+    for (int i = 0; i < n; i++) {
+        int idx = vetor[i] / 10;
+        b[idx].balde[b[idx].topo++] = vetor[i];
+    }
+    for (int i = 0; i < numeroBaldes; i++)
+    {
+        if (b[i].topo > 0)
+        {
+            bolha(b[i].balde, b[i].topo);
+        }
+    }
+    for (int i = 0, j = 0; j < numeroBaldes; j++)
+    {
+        for (int k = 0; k < b[j].topo; k++)
+        {
+            vetor[i++] = b[j].balde[k];
+        }
+    }
+    for (int i = 0; i < numeroBaldes; i++) 
+    {
+        free(b[i].balde);
+    }
+    free(b);
+    
+    end = clock();
+    printf("\nBucketsort com %d elementos\nTempo de execucao: %f segundos\n\n", n , ((double)(end - start)) / CLOCKS_PER_SEC);
 }
