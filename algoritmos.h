@@ -15,3 +15,9 @@ void mergesort(int *vetor, int inicio, int fim);
 void quicksortIni(int *vetor, int esq, int dir);
 int mediana(int *vetor, int esq, int dir);
 void quicksortMediana(int *vetor, int esq, int dir);
+void bucketsort(int *vetor, int n);
+typedef struct Baldes
+{
+    int topo;
+    int *balde;
+} baldes;
