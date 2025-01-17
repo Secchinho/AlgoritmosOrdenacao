@@ -105,6 +105,7 @@ void menuOrdenacao(int tamanho)
         break;
     case 12:
         // RadixSort
+        void radixsort(vetor, tamanho);
         break;
     case 13:
         // BucketSort

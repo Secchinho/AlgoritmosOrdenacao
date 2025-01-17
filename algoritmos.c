@@ -461,3 +461,62 @@ void bucketsort(int *vetor, int n)
     end = clock();
     printf("\nBucketsort com %d elementos\nTempo de execucao: %f segundos\n\n", n , ((double)(end - start)) / CLOCKS_PER_SEC);
 }
+
+int maiorNumero(int *vetor, int n)
+{
+    int maior = vetor[0];
+
+    for(int i = 1; i < n; i++)
+    {
+        if(maior < vetor[i])
+        {
+            maior = vetor[i];
+        }
+    }
+
+    return maior;
+}
+
+void contagem(int *vetor, int n, int exp)
+{
+    int saida[n];
+    int contagem[10] = {0};
+
+    for(int i = 0; i < n; i++)
+    {
+        contagem[(vetor[i] / exp) % 10]++;
+    }
+
+    for(int i = 1; i < 10; i++)
+    {
+        contagem[i] = contagem[i - 1];
+    }
+
+    for(int i = 0; i < n; i++)
+    {
+        saida[contagem[(vetor[i] / exp) % 10] - 1] = vetor[i];
+        contagem[(vetor[i] / exp) % 10]--;
+    }
+
+    for(int i = 0; i < n; i++)
+    {
+        vetor[i] = saida[i];
+    }
+}
+
+void radixsort(int *vetor, int n)
+{
+    clock_t start, end;
+    start = clock();
+
+    int maior = maiorNumero(vetor, n);
+
+    for(int i = 1; max / i > 0; i *= 10)
+    {
+        contagem(vetor, n, i);
+    }
+
+    end = clock();
+    printf("\nRadixsort com %d elementos\nTempo de execucao: %f segundos\n\n", n , ((double)(end - start)) / CLOCKS_PER_SEC);
+
+}

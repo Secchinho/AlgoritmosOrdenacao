@@ -1,3 +1,9 @@
+typedef struct Baldes
+{
+    int topo;
+    int *balde;
+} baldes;
+
 void bolha(int *vetor, int n);
 void bolhaComParada(int *vetor, int n);
 void insercaoDireta(int *vetor, int n);
@@ -16,8 +22,6 @@ void quicksortIni(int *vetor, int esq, int dir);
 int mediana(int *vetor, int esq, int dir);
 void quicksortMediana(int *vetor, int esq, int dir);
 void bucketsort(int *vetor, int n);
-typedef struct Baldes
-{
-    int topo;
-    int *balde;
-} baldes;
+int maiorNumero(int *vetor, int n);
+void contagem(int *vetor, int n, int exp);
+void radixsort(int *vetor, int n);
