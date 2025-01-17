@@ -7,11 +7,13 @@
 void bolha(int *vetor, int n){
     clock_t start, end;
     start = clock();
+    int comp = 0;
     int i, j = 0, aux;
     for ( i = n-1; i > 0; i--)
     {
         for ( j = 0; j < i; j++)
         {
+            comp++;
             if (vetor[j] > vetor[j+1])
             {
                 aux = vetor[j];
@@ -21,13 +23,14 @@ void bolha(int *vetor, int n){
         }
     }
     end = clock();
-    printf("\nBolha com %d elementos\nTempo de execucao: %f segundos\n\n", n , ((double)(end - start)) / CLOCKS_PER_SEC);
+    printf("\nBolha com %d elementos\nQuantidade de Comparações: %d\nTempo de execucao: %f segundos\n\n", n, comp, ((double)(end - start)) / CLOCKS_PER_SEC);
 }
 
 void bolhaComParada(int *vetor, int n)
 {
     clock_t start, end;
     start = clock();
+    int comp = 0;
     int aux = 0;
     int ultimoIndex = n - 1;
     bool trocou = true;
@@ -38,6 +41,7 @@ void bolhaComParada(int *vetor, int n)
         int novoUltimoIndex = 0;
         for (int j = 0; j < ultimoIndex; j++)
         {
+            comp++;
             if (vetor[j] > vetor[j + 1])
             {
                 aux = vetor[j];
@@ -50,12 +54,13 @@ void bolhaComParada(int *vetor, int n)
         ultimoIndex = novoUltimoIndex;
     }
     end = clock();
-    printf("\nBolha(com parada) com %d elementos\nTempo de execucao: %f segundos\n\n", n , ((double)(end - start)) / CLOCKS_PER_SEC);
+    printf("\nBolha(com parada) com %d elementos\nQuantidade de Comparações: %d\nTempo de execucao: %f segundos\n\n", n, comp, ((double)(end - start)) / CLOCKS_PER_SEC);
 }
 
 void insercaoDireta(int *vetor, int n){
     clock_t start, end;
     start = clock();
+    int comp = 0;
     int i, auxiliar, j;
     for(i=1; i<n; i++)
     {
@@ -63,6 +68,7 @@ void insercaoDireta(int *vetor, int n){
         j = i-1;
         while(j>=0 && vetor[j]>auxiliar)
         {
+            comp++;
             vetor[j+1] = vetor[j];
             j--;
         }
@@ -72,7 +78,7 @@ void insercaoDireta(int *vetor, int n){
         }
     }
     end = clock();
-    printf("\nInsercao Direta com %d elementos\nTempo de execucao: %f segundos\n\n", n , ((double)(end - start)) / CLOCKS_PER_SEC);
+    printf("\nInsercao Direta com %d elementos\nQuantidade de Comparações: %d\nTempo de execucao: %f segundos\n\n", n, comp, ((double)(end - start)) / CLOCKS_PER_SEC);
 }
 
 void insercaoBinaria(int *vet, int n)
@@ -80,6 +86,7 @@ void insercaoBinaria(int *vet, int n)
     clock_t start, end;
     start = clock();
 
+    int comp = 0;
     int aux = 0;
     int dir = 0, esq = 0, meio = 0;
 
@@ -91,6 +98,7 @@ void insercaoBinaria(int *vet, int n)
 
         while(esq < dir)
         {
+            comp++;
             meio = (esq + dir) / 2;
             if(vet[meio] <= aux)
             {
@@ -111,7 +119,7 @@ void insercaoBinaria(int *vet, int n)
     }
 
     end = clock();
-    printf("\nInsercao Binaria com %d elementos\nTempo de execucao: %f segundos\n\n", n , ((double)(end - start)) / CLOCKS_PER_SEC);
+    printf("\nInsercao Binaria com %d elementos\nQuantidade de Comparações: %d\nTempo de execucao: %f segundos\n\n", n, comp, ((double)(end - start)) / CLOCKS_PER_SEC);
 
 }
 
@@ -119,6 +127,8 @@ void shellsort(int *vetor, int n)
 {
     clock_t start, end;
     start = clock();
+    
+    int comp = 0;
     int i, j, h = 1, aux;
     while (h < n)
     {
@@ -133,28 +143,35 @@ void shellsort(int *vetor, int n)
             j = i - h;
             while (j >= 0 && aux < vetor[j])
             {
+                comp++;
                 vetor[j+h] = vetor[j];
                 j -= h;
+            }
+
+            if (j >= 0) {
+                comp++;
             }
             vetor[j+h] = aux;
         }
     }
     end = clock();
-    printf("\nShellsort com %d elementos\nTempo de execucao: %f segundos\n\n", n , ((double)(end - start)) / CLOCKS_PER_SEC);
+    printf("\nShellsort com %d elementos\nQuantidade de Comparações: %d\nTempo de execucao: %f segundos\n\n", n, comp, ((double)(end - start)) / CLOCKS_PER_SEC);
 }
 
-void criaHeap(int *vetor, int i, int f)
+void criaHeap(int *vetor, int i, int f, int *comp)
 {
     int aux = vetor[i], j = i * 2 + 1;
     while (j <= f)
     {
         if (j < f)
         {
+            (*comp)++;
             if (vetor[j] < vetor[j+1])
             {
                 j++;
             }
         }
+        (*comp)++;
         if (aux < vetor[j])
         {
             vetor[i] = vetor[j];
@@ -173,26 +190,28 @@ void heapsort(int *vetor, int n)
 {
     clock_t start, end;
     start = clock();
+    int comp = 0;
     int aux;
     for (int i = (n-1)/2; i >= 0; i--)
     {
-        criaHeap(vetor, i, n-1);
+        criaHeap(vetor, i, n-1, &comp);
     }
     for (int i = n-1; i > 0; i--)
     {
         aux = vetor[0];
         vetor[0] = vetor[i];
         vetor[i] = aux;
-        criaHeap(vetor, 0, i-1);
+        criaHeap(vetor, 0, i-1, &comp);
     }
     end = clock();
-    printf("\nHeapsort com %d elementos\nTempo de execucao: %f segundos\n\n", n , ((double)(end - start)) / CLOCKS_PER_SEC);
+    printf("\nHeapsort com %d elementos\nQuantidade de Comparações: %d\nTempo de execucao: %f segundos\n\n", n, comp, ((double)(end - start)) / CLOCKS_PER_SEC);
 }
 
 void selecaoDireta(int *vetor, int n)
 {
     clock_t start, end;
     start = clock();
+    int comp = 0;
     int menor = 0;
     int aux = 0;
     for(int i = 0; i <= (n - 1); i++)
@@ -200,6 +219,7 @@ void selecaoDireta(int *vetor, int n)
         menor = i;
         for(int j = (i+1); j < n; j++)
         {
+            comp++;
             if(vetor[j] < vetor[menor])
             {
                 menor = j;
@@ -214,10 +234,10 @@ void selecaoDireta(int *vetor, int n)
         }
     }
     end = clock();
-    printf("\nSelecao Direta com %d elementos\nTempo de execucao: %f segundos\n\n", n , ((double)(end - start)) / CLOCKS_PER_SEC);
+    printf("\nSelecao Direta com %d elementos\nQuantidade de Comparações: %d\nTempo de execucao: %f segundos\n\n", n, comp, ((double)(end - start)) / CLOCKS_PER_SEC);
 }
 
-void particao(int *vetor, int esquerda, int direita, int *i, int *j)
+void particao(int *vetor, int esquerda, int direita, int *i, int *j, int *comp)
 {
     *i = esquerda; 
     *j = direita; 
@@ -226,12 +246,16 @@ void particao(int *vetor, int esquerda, int direita, int *i, int *j)
     {
         while (vetor[*i] < pivo && *i < direita)
         {
+            (*comp)++;
             (*i)++;
         }
+        (*comp)++;
         while (vetor[*j] > pivo && *j > esquerda)
         {
+            (*comp)++;
             (*j)--;
         }
+        (*comp)++;
         if (*i <= *j)
         {
             aux = vetor[*i];
@@ -243,17 +267,17 @@ void particao(int *vetor, int esquerda, int direita, int *i, int *j)
     }
 }
 
-void ordena(int *vetor, int esquerda, int direita)
+void ordena(int *vetor, int esquerda, int direita, int *comp)
 {
     int i, j;
-    particao(vetor, esquerda, direita, &i, &j);
+    particao(vetor, esquerda, direita, &i, &j, comp);
     if (i < direita)
     {
-        ordena(vetor, i, direita);
+        ordena(vetor, i, direita, comp);
     }
     if (j > esquerda)
     {
-        ordena(vetor, esquerda, j);
+        ordena(vetor, esquerda, j, comp);
     }
 }
 
@@ -261,9 +285,10 @@ void quicksortCentro(int *vetor, int esquerda, int direita)
 {
     clock_t start, end;
     start = clock();
-    ordena(vetor, esquerda, direita);
+    int comp = 0;
+    ordena(vetor, esquerda, direita, &comp);
     end = clock();
-    printf("\nQuicksort Centro com %d elementos\nTempo de execucao: %f segundos\n\n", direita+1 , ((double)(end - start)) / CLOCKS_PER_SEC);
+    printf("\nQuicksort Centro com %d elementos\nQuantidade de Comparações: %d\nTempo de execucao: %f segundos\n\n", direita+1, comp, ((double)(end - start)) / CLOCKS_PER_SEC);
 }
 
 void merge(int *vetor, int inicio, int fim)
