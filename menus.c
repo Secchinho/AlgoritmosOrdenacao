@@ -89,7 +89,7 @@ void menuOrdenacao(int tamanho)
         break;
     case 8:
         // QuickSort Início
-        void quicksortIni(vetor, 0, tamanho);
+        void contadorQuicksortIni(vetor, 0, tamanho);
         break;
     case 9:
         // QuickSort Centro

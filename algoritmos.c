@@ -341,11 +341,8 @@ void intercalar(int *vetor, int inicio, int fim, int meio, int *comp)
     }
 }
 
-void quicksortIni(int *vetor, int esq, int dir)
+void quicksortIni(int *vetor, int esq, int dir, int *comp)
 {
-    clock_t start, end;
-    start = clock();
-    int comp = 0;
     if(esq < dir)
     {
         int pivo = vetor[esq];
@@ -382,27 +379,41 @@ void quicksortIni(int *vetor, int esq, int dir)
         quicksortIni(vetor, esq, j - 1);
         quicksortIni(vetor, i + 1; dir);
     }
+}
+
+void contadorQuickSortIni(int *vetor, int esq, int dir)
+{
+    clock_t start, end;
+    start = clock();
+    int comp = 0;
+
+    quicksortIni(vetor, esq, dir, &comp)
+
     end = clock();
     printf("\nQuicksort Inicio com %d elementos\nQuantidade de Comparações: %d\nTempo de execucao: %f segundos\n\n", dir+1, comp, ((double)(end - start)) / CLOCKS_PER_SEC);
 }
 
-int particionarComMediana(int *vetor, int esq, int dir) {
+
+int particionarComMediana(int *vetor, int esq, int dir, int *comp) {
     int meio = esq + (dir - esq) / 2;
 
     if (vetor[esq] > vetor[meio]) {
         int temp = vetor[esq];
         vetor[esq] = vetor[meio];
         vetor[meio] = temp;
+        (*comp)++;
     }
     if (vetor[esq] > vetor[dir]) {
         int temp = vetor[esq];
         vetor[esq] = vetor[dir];
         vetor[dir] = temp;
+        (*comp)++;
     }
     if (vetor[meio] > vetor[dir]) {
         int temp = vetor[meio];
         vetor[meio] = vetor[dir];
         vetor[dir] = temp;
+        (*comp)++;
     }
 
     int temp = vetor[esq];
@@ -412,18 +423,20 @@ int particionarComMediana(int *vetor, int esq, int dir) {
     return vetor[esq];
 }
 
-void quicksortMediana(int *vetor, int esq, int dir) {
+void quicksortMediana(int *vetor, int esq, int dir, int *comp) {
     if (esq < dir) {
-        int pivo = particionarComMediana(vetor, esq, dir);
+        int pivo = particionarComMediana(vetor, esq, dir, comp);
         int i = esq + 1;
         int j = dir;
 
         while (i <= j) {
             while (i <= j && vetor[i] <= pivo) {
                 i++;
+                (*comp)++;
             }
             while (i <= j && vetor[j] > pivo) {
                 j--;
+                (*comp)++;
             }
             if (i < j) {
                 int temp = vetor[i];
@@ -440,14 +453,29 @@ void quicksortMediana(int *vetor, int esq, int dir) {
     }
 }
 
+void contadorQuickSortMediana(int *vetor, int esq, int dir)
+{
+    clock_t start, end;
+    start = clock();
+    int comp = 0;
+
+    quicksortMediana(vetor, esq, dir, &comp);
+
+    end = clock();
+    printf("\nQuickSort Mediana com %d elementos\nQuantidade de Comparações: %d\nTempo de execucao: %f segundos\n\n", n, comp, ((double)(end - start)) / CLOCKS_PER_SEC);
+
+}
+
 void bucketsort(int *vetor, int n)
 {
     clock_t start, end;
     start = clock();
 
+    int comp = 0;
     int maior=0;
     for (int i = 0; i < n; i++)
     {
+        comp++;
         if (vetor[i] > maior)
         {
             maior  = vetor[i];
@@ -469,6 +497,7 @@ void bucketsort(int *vetor, int n)
         }
     }
     for (int i = 0; i < n; i++) {
+        comp++;
         int idx = vetor[i] / 10;
         b[idx].balde[b[idx].topo++] = vetor[i];
     }
@@ -483,6 +512,7 @@ void bucketsort(int *vetor, int n)
     {
         for (int k = 0; k < b[j].topo; k++)
         {
+            comp++;
             vetor[i++] = b[j].balde[k];
         }
     }
@@ -491,9 +521,9 @@ void bucketsort(int *vetor, int n)
         free(b[i].balde);
     }
     free(b);
-    
     end = clock();
-    printf("\nBucketsort com %d elementos\nTempo de execucao: %f segundos\n\n", n , ((double)(end - start)) / CLOCKS_PER_SEC);
+    printf("\nBucketSort com %d elementos\nQuantidade de Comparações: %d\nTempo de execucao: %f segundos\n\n", n, comp, ((double)(end - start)) / CLOCKS_PER_SEC);
+    
 }
 
 int maiorNumero(int *vetor, int n, int *comp)
