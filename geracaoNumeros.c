@@ -143,3 +143,62 @@ void ordemDecrescente(int tam)
     }
     fclose(arqDecresc);
 }
+
+int* lerArquivo(int n) {
+    int x = 0, i = 0;
+    printf("----------MENU----------\nQue tipo de lista voce deseja ordenar:\n");
+    printf("1 - Lista Aleatoria\n");
+    printf("2 - Lista Crescente\n");
+    printf("3 - Lista Decrescente\n");
+    printf("------------------------\n");
+    printf("Opcao: ");
+    scanf("%d", &x);
+
+    int* vetor = (int*)malloc(n * sizeof(int));
+    if (vetor == NULL) {
+        printf("Erro ao alocar memoria!\n");
+        exit(1);
+    }
+
+    FILE* arqv = NULL;
+    char nomeArquivo[30];
+    char numstr[6];
+
+    sprintf(numstr, "%d", n);
+
+    if (x == 1) 
+    {
+        strcpy(nomeArquivo, "ListaAleatoria");
+    } 
+    else if (x == 2) 
+    {
+        strcpy(nomeArquivo, "ListaCrescente");
+    } 
+    else if (x == 3)
+    {
+        strcpy(nomeArquivo, "ListaDecrescente");
+    }
+    else 
+    {
+        printf("Opcao invalida!\n");
+        free(vetor);
+        exit(1);
+    }
+
+    strcat(nomeArquivo, numstr);
+    strcat(nomeArquivo, ".txt");
+
+    arqv = fopen(nomeArquivo, "r");
+    if (arqv == NULL) {
+        printf("Erro ao abrir o arquivo: %s\n", nomeArquivo);
+        free(vetor);
+        exit(1);
+    }
+
+    while (i < n && fscanf(arqv, "%d", &vetor[i]) == 1) {
+        i++;
+    }
+    fclose(arqv);
+
+    return vetor;
+}
