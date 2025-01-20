@@ -57,59 +57,61 @@ void menuOrdenacao(int tamanho)
     printf("Opção: ");
     scanf(" %d", &op);
 
+    int *vetor = lerArquivo(tamanho);
+    
     switch (op)
     {
     case 1:
         // Ordenação Bolha
-        void bolha(vetor, tamanho);
+        bolha(vetor, tamanho);
         break;
     case 2:
         // Ordenação Bolha com Parada
-        void bolhaComParada(vetor, tamanho);
+        bolhaComParada(vetor, tamanho);
         break;
     case 3:
         // Inserção Direta
-        void insercaoDireta(vetor, tamanho);
+        insercaoDireta(vetor, tamanho);
         break;
     case 4:
         // Inserção Binária
-        void insercaoBinaria(vetor, tamanho);
+        insercaoBinaria(vetor, tamanho);
         break;
     case 5:
         // ShellSort
-        void shellsort(vetor, tamanho);
+        shellsort(vetor, tamanho);
         break;
     case 6:
         // Seleção Direta
-        void selecaoDireta(vetor, tamanho);
+        selecaoDireta(vetor, tamanho);
         break;
     case 7:
         // HeapSort
-        void heapsort(vetor, tamanho);
+        heapsort(vetor, tamanho);
         break;
     case 8:
         // QuickSort Início
-        void contadorQuicksortIni(vetor, 0, tamanho);
+        contadorQuicksortIni(vetor, 0, tamanho);
         break;
     case 9:
         // QuickSort Centro
-        void quicksortCentro(vetor, 0, tamanho);
+        quicksortCentro(vetor, 0, tamanho);
         break;
     case 10:
         // QuickSort Mediana
-        void quicksortMediana(int *vetor, int esq, int dir);
+        quicksortMediana(vetor, 0, tamanho);
         break;
     case 11:
         // MergeSort
-        void mergesort(vetor, 0, tamanho);
+        mergesort(vetor, 0, tamanho);
         break;
     case 12:
         // RadixSort
-        void radixsort(vetor, tamanho);
+        radixsort(vetor, tamanho);
         break;
     case 13:
         // BucketSort
-        void bucketsort(vetor, tamanho);
+        bucketsort(vetor, tamanho);
         break;
     default:
         printf("\nErro, opção inválida\n");
