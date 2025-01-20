@@ -203,3 +203,26 @@ int* lerArquivo(int n) {
 
     return vetor;
 }
+
+void saida(int *vetor, int n, char str[])
+{
+    char numstr[6], nomeArquivo[50] = "Saida";
+    strcat(nomeArquivo, str);
+    sprintf(numstr, "%d", n);
+    strcat(nomeArquivo, numstr);
+    strcat(nomeArquivo, ".txt");
+    FILE *arqSaida = fopen(nomeArquivo, "w");
+    if (arqSaida == NULL) {
+        printf("Erro ao criar o arquivo: %s\n", nomeArquivo);
+        exit(1);
+    }
+    for (int i = 0; i < n; i++) 
+    {
+        if (fprintf(arqSaida, "%d\n", vetor[i]) < 0) 
+        {
+            printf("Erro ao escrever no arquivo: %s\n", nomeArquivo);
+            fclose(arqSaida);
+            exit(1);
+        }
+    }
+}
