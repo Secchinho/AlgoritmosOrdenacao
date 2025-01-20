@@ -64,54 +64,67 @@ void menuOrdenacao(int tamanho)
     case 1:
         // Ordenação Bolha
         bolha(vetor, tamanho);
+        saida(vetor, tamanho, "Bolha");
         break;
     case 2:
         // Ordenação Bolha com Parada
         bolhaComParada(vetor, tamanho);
+        saida(vetor, tamanho, "BolhaComParada");
         break;
     case 3:
         // Inserção Direta
         insercaoDireta(vetor, tamanho);
+        saida(vetor, tamanho, "InsercaoDireta");
         break;
     case 4:
         // Inserção Binária
         insercaoBinaria(vetor, tamanho);
+        saida(vetor, tamanho, "InsercaoBinaria");
         break;
     case 5:
         // ShellSort
         shellsort(vetor, tamanho);
+        saida(vetor, tamanho, "Shellsort");
         break;
     case 6:
         // Seleção Direta
         selecaoDireta(vetor, tamanho);
+        saida(vetor, tamanho, "SelecaoDireta");
         break;
     case 7:
         // HeapSort
         heapsort(vetor, tamanho);
+        saida(vetor, tamanho, "Heapsort");
         break;
     case 8:
         // QuickSort Início
         contadorQuicksortIni(vetor, 0, tamanho);
+        saida(vetor, tamanho, "QuicksortInicio");
         break;
     case 9:
         // QuickSort Centro
         quicksortCentro(vetor, 0, tamanho);
+        saida(vetor, tamanho, "QuicksortCentro");
         break;
     case 10:
         // QuickSort Mediana
         quicksortMediana(vetor, 0, tamanho);
+        saida(vetor, tamanho, "QuicksortMediana");
         break;
     case 11:
         // MergeSort
         mergesort(vetor, 0, tamanho);
+        saida(vetor, tamanho, "Mergesort");
         break;
     case 12:
         // RadixSort
         radixsort(vetor, tamanho);
+        saida(vetor, tamanho, "Radixsort");
         break;
     case 13:
         // BucketSort
         bucketsort(vetor, tamanho);
+        saida(vetor, tamanho, "Bucketsort");
         break;
     default:
         printf("\nErro, opção inválida\n");
