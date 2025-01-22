@@ -5,56 +5,56 @@
 
 void menuNumeros(int tam)
 {
-    system("clear");
+    system("cls");
     int op = 0;
     printf("----------MENU----------\n");
-    printf("1 - Ordem Aleatória\n");
+    printf("1 - Ordem Aleatoria\n");
     printf("2 - Ordem Crescente\n");
     printf("3 - Ordem Decrescente\n");
     printf("------------------------\n");
-    printf("Opção: ");
+    printf("Opcao: ");
     scanf(" %d", &op);
 
     switch (op)
     {
     case 1:
-        // Função geração aleatória
+        // Funcao geracao aleatória
         ordemAleatoria(tam);
         break;
     case 2:
-        // Função geração crescente
+        // Funcao geracao crescente
         ordemCrescente(tam);
         break;
     case 3:
-        // Função geração decrescente
+        // Funcao geracao decrescente
         ordemDecrescente(tam);
         break;
     default:
-        printf("\nErro, opção inválida\n");
+        printf("\nErro, opcao invalida\n");
         break;
     }
 }
 
 void menuOrdenacao(int tamanho)
 {
-    system("clear");
+    system("cls");
     int op = 0;
     printf("----------MENU----------\n");
     printf("1 - Bolha\n");
     printf("2 - Bolha com Parada\n");
-    printf("3 - Inserção Direta\n");
-    printf("4 - Inserção Binária\n");
+    printf("3 - Insercao Direta\n");
+    printf("4 - Insercao Binaria\n");
     printf("5 - ShellSort\n");
-    printf("6 - Seleção Direta\n");
+    printf("6 - Selecao Direta\n");
     printf("7 - HeapSort\n");
-    printf("8 - QuickSort Início\n");
+    printf("8 - QuickSort Inicio\n");
     printf("9 - QuickSort Centro\n");
     printf("10 - QuickSort Mediana\n");
     printf("11 - MergeSort\n");
     printf("12 - RadixSort\n");
     printf("13 - BucketSort\n");
     printf("------------------------\n");
-    printf("Opção: ");
+    printf("Opcao: ");
     scanf(" %d", &op);
 
     int *vetor = lerArquivo(tamanho);
@@ -62,22 +62,22 @@ void menuOrdenacao(int tamanho)
     switch (op)
     {
     case 1:
-        // Ordenação Bolha
+        // Ordenacao Bolha
         bolha(vetor, tamanho);
         saida(vetor, tamanho, "Bolha");
         break;
     case 2:
-        // Ordenação Bolha com Parada
+        // Ordenacao Bolha com Parada
         bolhaComParada(vetor, tamanho);
         saida(vetor, tamanho, "BolhaComParada");
         break;
     case 3:
-        // Inserção Direta
+        // Insercao Direta
         insercaoDireta(vetor, tamanho);
         saida(vetor, tamanho, "InsercaoDireta");
         break;
     case 4:
-        // Inserção Binária
+        // Insercao Binaria
         insercaoBinaria(vetor, tamanho);
         saida(vetor, tamanho, "InsercaoBinaria");
         break;
@@ -87,7 +87,7 @@ void menuOrdenacao(int tamanho)
         saida(vetor, tamanho, "Shellsort");
         break;
     case 6:
-        // Seleção Direta
+        // Selecao Direta
         selecaoDireta(vetor, tamanho);
         saida(vetor, tamanho, "SelecaoDireta");
         break;
@@ -97,7 +97,7 @@ void menuOrdenacao(int tamanho)
         saida(vetor, tamanho, "Heapsort");
         break;
     case 8:
-        // QuickSort Início
+        // QuickSort Inicio
         contadorQuickSortIni(vetor, 0, tamanho);
         saida(vetor, tamanho, "QuicksortInicio");
         break;
@@ -127,7 +127,7 @@ void menuOrdenacao(int tamanho)
         saida(vetor, tamanho, "Bucketsort");
         break;
     default:
-        printf("\nErro, opção inválida\n");
+        printf("\nErro, opcao invalida\n");
         break;
     }
 }
@@ -141,7 +141,7 @@ void menuTamEntrada(int opcao)
     printf("2 - Tamanho 10000\n");
     printf("3 - Tamanho 100000\n");
     printf("------------------------\n");
-    printf("Opção: ");
+    printf("Opcao: ");
     scanf(" %d", &op);
 
     switch (op)
@@ -159,7 +159,7 @@ void menuTamEntrada(int opcao)
         tam = 100000;
         break;
     default:
-        printf("\nErro, opção inválida\n");
+        printf("\nErro, opcao invalida\n");
         break;
     }
 
@@ -173,6 +173,6 @@ void menuTamEntrada(int opcao)
     }
     else 
     {
-        printf("\nOpção inválida!");
+        printf("\nOpcao invalida!");
     }
 }
