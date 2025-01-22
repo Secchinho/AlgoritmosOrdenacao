@@ -5,7 +5,7 @@
 
 void ordemAleatoria(int tam)
 {
-    srand(time(NULL)); // Inicializa a semente do gerador de números aleatórios
+    srand(time(NULL)); // Inicializa a semente do gerador de numeros aleatórios
 
     FILE *arqRand;
     if(tam == 1000)
@@ -36,7 +36,7 @@ void ordemAleatoria(int tam)
     }
     else
     {
-        printf("\nTamanho inválido!\n");
+        printf("\nTamanho invalido!\n");
     }
     
 
@@ -85,7 +85,7 @@ void ordemCrescente(int tam)
     }
     else
     {
-        printf("\nTamanho inválido!\n");
+        printf("\nTamanho invalido!\n");
     }
 
     for (int i = 0; i < tam; i++)
@@ -131,7 +131,7 @@ void ordemDecrescente(int tam)
     }
     else
     {
-        printf("\nTamanho inválido!\n");
+        printf("\nTamanho invalido!\n");
     }
     for (int i = tam; i > 0; i--)
     {
@@ -225,4 +225,5 @@ void saida(int *vetor, int n, char str[])
             exit(1);
         }
     }
+    fclose(arqSaida);
 }
