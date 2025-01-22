@@ -98,7 +98,7 @@ void menuOrdenacao(int tamanho)
         break;
     case 8:
         // QuickSort Início
-        contadorQuicksortIni(vetor, 0, tamanho);
+        contadorQuickSortIni(vetor, 0, tamanho);
         saida(vetor, tamanho, "QuicksortInicio");
         break;
     case 9:
@@ -108,7 +108,7 @@ void menuOrdenacao(int tamanho)
         break;
     case 10:
         // QuickSort Mediana
-        quicksortMediana(vetor, 0, tamanho);
+        contadorQuickSortMediana(vetor, 0, tamanho);
         saida(vetor, tamanho, "QuicksortMediana");
         break;
     case 11:
