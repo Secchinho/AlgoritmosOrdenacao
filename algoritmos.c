@@ -376,8 +376,8 @@ void quicksortIni(int *vetor, int esq, int dir, int *comp)
         vetor[esq] = vetor[j];
         vetor[j] = pivo;
 
-        quicksortIni(vetor, esq, j - 1);
-        quicksortIni(vetor, i + 1; dir);
+        quicksortIni(vetor, esq, j - 1, comp);
+        quicksortIni(vetor, i + 1, dir, comp);
     }
 }
 
@@ -387,7 +387,7 @@ void contadorQuickSortIni(int *vetor, int esq, int dir)
     start = clock();
     int comp = 0;
 
-    quicksortIni(vetor, esq, dir, &comp)
+    quicksortIni(vetor, esq, dir, &comp);
 
     end = clock();
     printf("\nQuicksort Inicio com %d elementos\nQuantidade de Comparações: %d\nTempo de execucao: %f segundos\n\n", dir+1, comp, ((double)(end - start)) / CLOCKS_PER_SEC);
@@ -448,8 +448,8 @@ void quicksortMediana(int *vetor, int esq, int dir, int *comp) {
         vetor[esq] = vetor[j];
         vetor[j] = pivo;
 
-        quicksortMediana(vetor, esq, j - 1);
-        quicksortMediana(vetor, j + 1, dir);
+        quicksortMediana(vetor, esq, j - 1, comp);
+        quicksortMediana(vetor, j + 1, dir, comp);
     }
 }
 
@@ -462,7 +462,7 @@ void contadorQuickSortMediana(int *vetor, int esq, int dir)
     quicksortMediana(vetor, esq, dir, &comp);
 
     end = clock();
-    printf("\nQuickSort Mediana com %d elementos\nQuantidade de Comparações: %d\nTempo de execucao: %f segundos\n\n", n, comp, ((double)(end - start)) / CLOCKS_PER_SEC);
+    printf("\nQuickSort Mediana com %d elementos\nQuantidade de Comparações: %d\nTempo de execucao: %f segundos\n\n", dir, comp, ((double)(end - start)) / CLOCKS_PER_SEC);
 
 }
 
@@ -578,7 +578,7 @@ void radixsort(int *vetor, int n)
 
     int maior = maiorNumero(vetor, n, &comp);
 
-    for(int i = 1; max / i > 0; i *= 10)
+    for(int i = 1; maior / i > 0; i *= 10)
     {
         contagem(vetor, n, i, &comp);
     }
