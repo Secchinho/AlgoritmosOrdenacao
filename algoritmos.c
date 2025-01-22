@@ -23,7 +23,7 @@ void bolha(int *vetor, int n){
         }
     }
     end = clock();
-    printf("\nBolha com %d elementos\nQuantidade de Comparações: %d\nTempo de execucao: %f segundos\n\n", n, comp, ((double)(end - start)) / CLOCKS_PER_SEC);
+    printf("\nBolha com %d elementos\nQuantidade de Comparacoes: %d\nTempo de execucao: %f segundos\n\n", n, comp, ((double)(end - start)) / CLOCKS_PER_SEC);
 }
 
 void bolhaComParada(int *vetor, int n)
@@ -54,7 +54,7 @@ void bolhaComParada(int *vetor, int n)
         ultimoIndex = novoUltimoIndex;
     }
     end = clock();
-    printf("\nBolha(com parada) com %d elementos\nQuantidade de Comparações: %d\nTempo de execucao: %f segundos\n\n", n, comp, ((double)(end - start)) / CLOCKS_PER_SEC);
+    printf("\nBolha(com parada) com %d elementos\nQuantidade de Comparacoes: %d\nTempo de execucao: %f segundos\n\n", n, comp, ((double)(end - start)) / CLOCKS_PER_SEC);
 }
 
 void insercaoDireta(int *vetor, int n){
@@ -78,7 +78,7 @@ void insercaoDireta(int *vetor, int n){
         }
     }
     end = clock();
-    printf("\nInsercao Direta com %d elementos\nQuantidade de Comparações: %d\nTempo de execucao: %f segundos\n\n", n, comp, ((double)(end - start)) / CLOCKS_PER_SEC);
+    printf("\nInsercao Direta com %d elementos\nQuantidade de Comparacoes: %d\nTempo de execucao: %f segundos\n\n", n, comp, ((double)(end - start)) / CLOCKS_PER_SEC);
 }
 
 void insercaoBinaria(int *vet, int n)
@@ -119,7 +119,7 @@ void insercaoBinaria(int *vet, int n)
     }
 
     end = clock();
-    printf("\nInsercao Binaria com %d elementos\nQuantidade de Comparações: %d\nTempo de execucao: %f segundos\n\n", n, comp, ((double)(end - start)) / CLOCKS_PER_SEC);
+    printf("\nInsercao Binaria com %d elementos\nQuantidade de Comparacoes: %d\nTempo de execucao: %f segundos\n\n", n, comp, ((double)(end - start)) / CLOCKS_PER_SEC);
 
 }
 
@@ -155,7 +155,7 @@ void shellsort(int *vetor, int n)
         }
     }
     end = clock();
-    printf("\nShellsort com %d elementos\nQuantidade de Comparações: %d\nTempo de execucao: %f segundos\n\n", n, comp, ((double)(end - start)) / CLOCKS_PER_SEC);
+    printf("\nShellsort com %d elementos\nQuantidade de Comparacoes: %d\nTempo de execucao: %f segundos\n\n", n, comp, ((double)(end - start)) / CLOCKS_PER_SEC);
 }
 
 void criaHeap(int *vetor, int i, int f, int *comp)
@@ -204,7 +204,7 @@ void heapsort(int *vetor, int n)
         criaHeap(vetor, 0, i-1, &comp);
     }
     end = clock();
-    printf("\nHeapsort com %d elementos\nQuantidade de Comparações: %d\nTempo de execucao: %f segundos\n\n", n, comp, ((double)(end - start)) / CLOCKS_PER_SEC);
+    printf("\nHeapsort com %d elementos\nQuantidade de Comparacoes: %d\nTempo de execucao: %f segundos\n\n", n, comp, ((double)(end - start)) / CLOCKS_PER_SEC);
 }
 
 void selecaoDireta(int *vetor, int n)
@@ -234,7 +234,7 @@ void selecaoDireta(int *vetor, int n)
         }
     }
     end = clock();
-    printf("\nSelecao Direta com %d elementos\nQuantidade de Comparações: %d\nTempo de execucao: %f segundos\n\n", n, comp, ((double)(end - start)) / CLOCKS_PER_SEC);
+    printf("\nSelecao Direta com %d elementos\nQuantidade de Comparacoes: %d\nTempo de execucao: %f segundos\n\n", n, comp, ((double)(end - start)) / CLOCKS_PER_SEC);
 }
 
 void particao(int *vetor, int esquerda, int direita, int *i, int *j, int *comp)
@@ -288,7 +288,7 @@ void quicksortCentro(int *vetor, int esquerda, int direita)
     int comp = 0;
     ordena(vetor, esquerda, direita, &comp);
     end = clock();
-    printf("\nQuicksort Centro com %d elementos\nQuantidade de Comparações: %d\nTempo de execucao: %f segundos\n\n", direita+1, comp, ((double)(end - start)) / CLOCKS_PER_SEC);
+    printf("\nQuicksort Centro com %d elementos\nQuantidade de Comparacoes: %d\nTempo de execucao: %f segundos\n\n", direita+1, comp, ((double)(end - start)) / CLOCKS_PER_SEC);
 }
 
 void merge(int *vetor, int inicio, int fim, int *comp)
@@ -310,7 +310,7 @@ void mergesort(int *vetor, int inicio, int fim)
 
     merge(vetor, inicio, fim, &comp);
     end = clock();
-    printf("\nMergesort com %d elementos\nQuantidade de Comparações: %d\nTempo de execucao: %f segundos\n\n", fim+1, comp, ((double)(end - start)) / CLOCKS_PER_SEC);
+    printf("\nMergesort com %d elementos\nQuantidade de Comparacoes: %d\nTempo de execucao: %f segundos\n\n", fim+1, comp, ((double)(end - start)) / CLOCKS_PER_SEC);
 }
 
 void intercalar(int *vetor, int inicio, int fim, int meio, int *comp)
@@ -390,7 +390,7 @@ void contadorQuickSortIni(int *vetor, int esq, int dir)
     quicksortIni(vetor, esq, dir, &comp);
 
     end = clock();
-    printf("\nQuicksort Inicio com %d elementos\nQuantidade de Comparações: %d\nTempo de execucao: %f segundos\n\n", dir+1, comp, ((double)(end - start)) / CLOCKS_PER_SEC);
+    printf("\nQuicksort Inicio com %d elementos\nQuantidade de Comparacoes: %d\nTempo de execucao: %f segundos\n\n", dir+1, comp, ((double)(end - start)) / CLOCKS_PER_SEC);
 }
 
 
@@ -462,7 +462,7 @@ void contadorQuickSortMediana(int *vetor, int esq, int dir)
     quicksortMediana(vetor, esq, dir, &comp);
 
     end = clock();
-    printf("\nQuickSort Mediana com %d elementos\nQuantidade de Comparações: %d\nTempo de execucao: %f segundos\n\n", dir, comp, ((double)(end - start)) / CLOCKS_PER_SEC);
+    printf("\nQuickSort Mediana com %d elementos\nQuantidade de Comparacoes: %d\nTempo de execucao: %f segundos\n\n", dir, comp, ((double)(end - start)) / CLOCKS_PER_SEC);
 
 }
 
@@ -522,7 +522,7 @@ void bucketsort(int *vetor, int n)
     }
     free(b);
     end = clock();
-    printf("\nBucketSort com %d elementos\nQuantidade de Comparações: %d\nTempo de execucao: %f segundos\n\n", n, comp, ((double)(end - start)) / CLOCKS_PER_SEC);
+    printf("\nBucketSort com %d elementos\nQuantidade de Comparacoes: %d\nTempo de execucao: %f segundos\n\n", n, comp, ((double)(end - start)) / CLOCKS_PER_SEC);
     
 }
 
@@ -584,6 +584,6 @@ void radixsort(int *vetor, int n)
     }
 
     end = clock();
-    printf("\nRadixsort com %d elementos\nQuantidade de Comparações: %d\nTempo de execucao: %f segundos\n\n", n, comp, ((double)(end - start)) / CLOCKS_PER_SEC);
+    printf("\nRadixsort com %d elementos\nQuantidade de Comparacoes: %d\nTempo de execucao: %f segundos\n\n", n, comp, ((double)(end - start)) / CLOCKS_PER_SEC);
 
 }
