@@ -288,7 +288,7 @@ void quicksortCentro(int *vetor, int esquerda, int direita)
     int comp = 0;
     ordena(vetor, esquerda, direita, &comp);
     end = clock();
-    printf("\nQuicksort Centro com %d elementos\nQuantidade de Comparacoes: %d\nTempo de execucao: %f segundos\n\n", direita+1, comp, ((double)(end - start)) / CLOCKS_PER_SEC);
+    printf("\nQuicksort Centro com %d elementos\nQuantidade de Comparacoes: %d\nTempo de execucao: %f segundos\n\n", direita, comp, ((double)(end - start)) / CLOCKS_PER_SEC);
 }
 
 void merge(int *vetor, int inicio, int fim, int *comp)
@@ -310,7 +310,7 @@ void mergesort(int *vetor, int inicio, int fim)
 
     merge(vetor, inicio, fim, &comp);
     end = clock();
-    printf("\nMergesort com %d elementos\nQuantidade de Comparacoes: %d\nTempo de execucao: %f segundos\n\n", fim+1, comp, ((double)(end - start)) / CLOCKS_PER_SEC);
+    printf("\nMergesort com %d elementos\nQuantidade de Comparacoes: %d\nTempo de execucao: %f segundos\n\n", fim, comp, ((double)(end - start)) / CLOCKS_PER_SEC);
 }
 
 void intercalar(int *vetor, int inicio, int fim, int meio, int *comp)
