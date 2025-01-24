@@ -64,17 +64,26 @@ void bolhaComParada(int *vetor, int n)
 void insercaoDireta(int *vetor, int n){
     clock_t start, end;
     start = clock();
-    int comp = 0;
+    long int comp = 0;
+    long int troca = 0;
     int i, auxiliar, j;
-    for(i=1; i<n; i++)
+    for(i = 1; i < n; i++)
     {
         auxiliar = vetor[i];
         j = i-1;
-        while(j>=0 && vetor[j]>auxiliar)
+        while(j >= 0)
         {
             comp++;
-            vetor[j+1] = vetor[j];
-            j--;
+            if(vetor[j] > auxiliar)
+            {
+                vetor[j+1] = vetor[j];
+                j--;
+                troca++;
+            }
+            else
+            {
+                break;
+            }
         }
         if(j != i-1)
         {
@@ -82,7 +91,7 @@ void insercaoDireta(int *vetor, int n){
         }
     }
     end = clock();
-    printf("\nInsercao Direta com %d elementos\nQuantidade de Comparacoes: %d\nTempo de execucao: %f segundos\n\n", n, comp, ((double)(end - start)) / CLOCKS_PER_SEC);
+    printf("\nInsercao Direta com %d elementos\nQuantidade de Comparacoes: %ld\nQuantidade de Trocas: %ld\nTempo de execucao: %f segundos\n\n", n, comp, troca, ((double)(end - start)) / CLOCKS_PER_SEC);
 }
 
 void insercaoBinaria(int *vet, int n)
@@ -90,7 +99,8 @@ void insercaoBinaria(int *vet, int n)
     clock_t start, end;
     start = clock();
 
-    int comp = 0;
+    long int comp = 0;
+    long int troca = 0;
     int aux = 0;
     int dir = 0, esq = 0, meio = 0;
 
@@ -117,13 +127,14 @@ void insercaoBinaria(int *vet, int n)
         for(int j = i; j > esq; j--)
         {
             vet[j] = vet[j-1];
+            troca++;
         }
 
         vet[dir] = aux;
     }
 
     end = clock();
-    printf("\nInsercao Binaria com %d elementos\nQuantidade de Comparacoes: %d\nTempo de execucao: %f segundos\n\n", n, comp, ((double)(end - start)) / CLOCKS_PER_SEC);
+    printf("\nInsercao Binaria com %d elementos\nQuantidade de Comparacoes: %ld\nQuantidade de Trocas: %ld\nTempo de execucao: %f segundos\n\n", n, comp, troca, ((double)(end - start)) / CLOCKS_PER_SEC);
 
 }
 
@@ -132,7 +143,8 @@ void shellsort(int *vetor, int n)
     clock_t start, end;
     start = clock();
     
-    int comp = 0;
+    long int troca = 0;
+    long int comp = 0;
     int i, j, h = 1, aux;
     while (h < n)
     {
@@ -149,17 +161,23 @@ void shellsort(int *vetor, int n)
             {
                 comp++;
                 vetor[j+h] = vetor[j];
+                troca++;
                 j -= h;
             }
 
             if (j >= 0) {
                 comp++;
             }
+
             vetor[j+h] = aux;
+
+            if (j + h != i) {
+                troca++;
+            }
         }
     }
     end = clock();
-    printf("\nShellsort com %d elementos\nQuantidade de Comparacoes: %d\nTempo de execucao: %f segundos\n\n", n, comp, ((double)(end - start)) / CLOCKS_PER_SEC);
+    printf("\nShellsort com %d elementos\nQuantidade de Comparacoes: %ld\nQuantidade de Trocas: %ld\nTempo de execucao: %f segundos\n\n", n, comp, troca, ((double)(end - start)) / CLOCKS_PER_SEC);
 }
 
 void criaHeap(int *vetor, int i, int f, int *comp)
