@@ -187,7 +187,6 @@ int* lerArquivo(int n) {
     }
 
     strcat(nomeArquivo, numstr);
-    printf("\n\n%s\n\n", nomeArquivo);
     strcat(nomeArquivo, ".txt");
 
     arqv = fopen(nomeArquivo, "r");

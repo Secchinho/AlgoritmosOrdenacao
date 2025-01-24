@@ -7,7 +7,8 @@
 void bolha(int *vetor, int n){
     clock_t start, end;
     start = clock();
-    int comp = 0;
+    long int comp = 0;
+    long int troca = 0;
     int i, j = 0, aux;
     for ( i = n-1; i > 0; i--)
     {
@@ -19,18 +20,20 @@ void bolha(int *vetor, int n){
                 aux = vetor[j];
                 vetor[j] = vetor[j+1];
                 vetor[j+1] = aux;
+                troca++;
             }
         }
     }
     end = clock();
-    printf("\nBolha com %d elementos\nQuantidade de Comparacoes: %d\nTempo de execucao: %f segundos\n\n", n, comp, ((double)(end - start)) / CLOCKS_PER_SEC);
+    printf("\nBolha com %d elementos\nQuantidade de Comparacoes: %ld\nQuantidade de Trocas: %ld\nTempo de execucao: %f segundos\n\n", n, comp, troca, ((double)(end - start)) / CLOCKS_PER_SEC);
 }
 
 void bolhaComParada(int *vetor, int n)
 {
     clock_t start, end;
     start = clock();
-    int comp = 0;
+    long int comp = 0;
+    long int troca = 0;
     int aux = 0;
     int ultimoIndex = n - 1;
     bool trocou = true;
@@ -49,12 +52,13 @@ void bolhaComParada(int *vetor, int n)
                 vetor[j + 1] = aux;
                 trocou = true;
                 novoUltimoIndex = j;
+                troca++;
             }
         }
         ultimoIndex = novoUltimoIndex;
     }
     end = clock();
-    printf("\nBolha(com parada) com %d elementos\nQuantidade de Comparacoes: %d\nTempo de execucao: %f segundos\n\n", n, comp, ((double)(end - start)) / CLOCKS_PER_SEC);
+    printf("\nBolha(com parada) com %d elementos\nQuantidade de Comparacoes: %ld\nQuantidade de Trocas: %ld\nTempo de execucao: %f segundos\n\n", n, comp, troca, ((double)(end - start)) / CLOCKS_PER_SEC);
 }
 
 void insercaoDireta(int *vetor, int n){
