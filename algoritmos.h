@@ -5,6 +5,7 @@ typedef struct Baldes
 } baldes;
 
 void bolha(int *vetor, int n);
+void bolhaBK(int *vetor, int n, int *comp)
 void bolhaComParada(int *vetor, int n);
 void insercaoDireta(int *vetor, int n);
 void insercaoBinaria(int *vetor, int n);
