@@ -28,7 +28,7 @@ void bucketsort(int *vetor, int n)
     for (int i = 0; i < numeroBaldes; i++)
     {
         b[i].topo = 0;
-        b[i].balde = (int *)malloc(10 * sizeof(int));
+        b[i].balde = (int *)malloc(24 * sizeof(int));
         if (b[i].balde == NULL) {
             printf("Erro ao alocar memória para o balde %d!\n", i);
             exit(1);
@@ -43,7 +43,8 @@ void bucketsort(int *vetor, int n)
     {
         if (b[i].topo > 0)
         {
-            bolha(b[i].balde, b[i].topo, 0, 0);
+            long int compBolha = 0, trocaBolha = 0;
+            bolha(b[i].balde, b[i].topo, &compBolha, &trocaBolha);
         }
     }
     for (int i = 0, j = 0; j < numeroBaldes; j++)

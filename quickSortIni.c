@@ -9,30 +9,16 @@ void quicksortIni(int *vetor, int esq, int dir, int *comp) {
         
         while (i <= j) 
         {
-            while (i <= j) 
+            while (i <= j && vetor[i] <= pivo) 
             {
-                if (vetor[i] < pivo)
-                {
-                    (*comp)++;
-                    i++;
-                }
-                else
-                {
-                    break;
-                }  
+                (*comp)++;
+                i++;
             }
 
-            while (i <= j) 
+            while (i <= j && vetor[j] > pivo) 
             {
-                if (vetor[j] > pivo)
-                {
-                    (*comp)++;
-                    j--;
-                }
-                else
-                {
-                    break;
-                } 
+                (*comp)++;
+                j--; 
             }
 
             if (i < j) 
