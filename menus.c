@@ -1,7 +1,20 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "geracaoNumeros.h"
-#include "algoritmos.h"
+#include "bolha.h"
+#include "bolhaComParada.h"
+#include "insercaoDireta.h"
+#include "insercaoBinaria.h"
+#include "shellSort.h"
+#include "heapSort.h"
+#include "selecaoDireta.h"
+#include "quickSortIni.h"
+#include "quickSortCentro.h"
+#include "quickSortMediana.h"
+#include "mergeSort.h"
+#include "bucketSort.h"
+#include "radixSort.h"
+
 
 void menuNumeros(int tam)
 {
@@ -63,7 +76,7 @@ void menuOrdenacao(int tamanho)
     {
     case 1:
         // Ordenacao Bolha
-        bolha(vetor, tamanho);
+        chamaBolha(vetor, tamanho);
         saida(vetor, tamanho, "Bolha");
         break;
     case 2:

@@ -147,6 +147,7 @@ void ordemDecrescente(int tam)
 
 int* lerArquivo(int n) {
     int x = 0, i = 0;
+    system("cls");
     printf("----------MENU----------\nQue tipo de lista voce deseja ordenar:\n");
     printf("1 - Lista Aleatoria\n");
     printf("2 - Lista Crescente\n");
