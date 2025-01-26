@@ -50,5 +50,5 @@ void contadorQuickSortIni(int *vetor, int esq, int dir)
     quicksortIni(vetor, esq, dir, &comp);
 
     end = clock();
-    printf("\nQuicksort Inicio com %d elementos\nQuantidade de Comparacoes: %d\nTempo de execucao: %f segundos\n\n", dir+1, comp, ((double)(end - start)) / CLOCKS_PER_SEC);
+    printf("\nQuicksort Inicio com %d elementos\nQuantidade de Comparacoes: %d\nTempo de execucao: %f segundos\n\n", dir, comp, ((double)(end - start)) / CLOCKS_PER_SEC);
 }
