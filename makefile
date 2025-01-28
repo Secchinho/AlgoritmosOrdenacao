@@ -52,4 +52,7 @@ geracaoNumeros.o: geracaoNumeros.c
 	gcc -c geracaoNumeros.c
 
 del:
-	rm prog main.o menus.o bolha.o bolhaComParada.o insercaoDireta.o insercaoBinaria.o shellSort.o heapSort.o selecaoDireta.o quickSortIni.o quickSortCentro.o quickSortMediana.o mergeSort.o bucketSort.o radixSort.o geracaoNumeros.o
+	del prog main.o menus.o bolha.o bolhaComParada.o insercaoDireta.o insercaoBinaria.o shellSort.o heapSort.o selecaoDireta.o quickSortIni.o quickSortCentro.o quickSortMediana.o mergeSort.o bucketSort.o radixSort.o geracaoNumeros.o
+
+rm:
+	rm prog main.o menus.o bolha.o bolhaComParada.o insercaoDireta.o insercaoBinaria.o shellSort.o heapSort.o bucketSort.o selecaoDireta.o quickSortIni.o quickSortCentro.o quickSortMediana.o mergeSort.o geracaoNumeros.o radixSort.o
