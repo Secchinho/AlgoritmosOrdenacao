@@ -11,6 +11,8 @@ void bucketsort(int *vetor, int n)
 
     long long int comp = 0;
     long long int troca = 0;
+    long long int compBolha = 0;
+    long long int trocaBolha = 0;
     int maior=0;
     for (int i = 0; i < n; i++)
     {
@@ -44,7 +46,6 @@ void bucketsort(int *vetor, int n)
     {
         if (b[i].topo > 0)
         {
-            long long int compBolha = 0, trocaBolha = 0;
             bolha(b[i].balde, b[i].topo, &compBolha, &trocaBolha);
         }
     }
@@ -62,6 +63,9 @@ void bucketsort(int *vetor, int n)
         free(b[i].balde);
     }
     free(b);
+
+    comp += compBolha;
+    troca += trocaBolha;
     end = clock();
     printf("\nBucketSort com %d elementos\nQuantidade de Comparacoes: %lld\nQuantidade de Troca: %lld\nTempo de execucao: %f segundos\n\n", n, comp, troca, ((double)(end - start)) / CLOCKS_PER_SEC);
     
