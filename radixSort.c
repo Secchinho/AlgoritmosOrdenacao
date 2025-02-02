@@ -21,11 +21,8 @@ int maiorNumero(int *vetor, int n, long long int *comp)
 
 void contagem(int *vetor, int n, int exp, long long int *comp, long long int *troca)
 {
-    int *saida = (int*)malloc(n * sizeof(int));
-    if (saida == NULL) {
-        printf("Erro ao alocar memória para saída!\n");
-        exit(1);
-    }
+    int saida[n];
+
     int contagem[10] = {0};
 
     for(int i = 0; i < n; i++)
@@ -52,7 +49,6 @@ void contagem(int *vetor, int n, int exp, long long int *comp, long long int *tr
         }
         vetor[i] = saida[i];
     }
-    free(saida);
 }
 
 void radixsort(int *vetor, int n)

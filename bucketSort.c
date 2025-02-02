@@ -14,6 +14,7 @@ void bucketsort(int *vetor, int n)
     long long int compBolha = 0;
     long long int trocaBolha = 0;
     int maior=0;
+
     for (int i = 0; i < n; i++)
     {
         comp++;
@@ -22,47 +23,42 @@ void bucketsort(int *vetor, int n)
             maior  = vetor[i];
         }
     }
+
     int numeroBaldes = (maior/10)+1;
-    baldes *b = (baldes *)malloc(numeroBaldes * sizeof(baldes));
-    if (b == NULL) {
-        printf("Erro ao alocar memória para os baldes!\n");
-        exit(1);
-    }
+    baldes bal[numeroBaldes];
+
     for (int i = 0; i < numeroBaldes; i++)
     {
-        b[i].topo = 0;
-        b[i].balde = (int *)malloc(24 * sizeof(int));
-        if (b[i].balde == NULL) {
-            printf("Erro ao alocar memória para o balde %d!\n", i);
-            exit(1);
-        }
+        bal[i].topo = 0;        
     }
+
     for (int i = 0; i < n; i++) {
         comp++;
-        int idx = vetor[i] / 10;
-        b[idx].balde[b[idx].topo++] = vetor[i];
-    }
-    for (int i = 0; i < numeroBaldes; i++)
-    {
-        if (b[i].topo > 0)
+        int idx = vetor[i] / (maior / numeroBaldes + 1);
+        
+        if(bal[idx].topo < 24)
         {
-            bolha(b[i].balde, b[i].topo, &compBolha, &trocaBolha);
+            bal[idx].balde[bal[idx].topo++] = vetor[i];
         }
     }
+
+    for (int i = 0; i < numeroBaldes; i++)
+    {
+        if (bal[i].topo > 0)
+        {
+            bolha(bal[i].balde, bal[i].topo, &compBolha, &trocaBolha);
+        }
+    }
+
     for (int i = 0, j = 0; j < numeroBaldes; j++)
     {
-        for (int k = 0; k < b[j].topo; k++)
+        for (int k = 0; k < bal[j].topo; k++)
         {
             comp++;
             troca++;
-            vetor[i++] = b[j].balde[k];
+            vetor[i++] = bal[j].balde[k];
         }
     }
-    for (int i = 0; i < numeroBaldes; i++) 
-    {
-        free(b[i].balde);
-    }
-    free(b);
 
     comp += compBolha;
     troca += trocaBolha;
