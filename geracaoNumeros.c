@@ -3,7 +3,8 @@
 #include <time.h>
 #include <string.h>
 
-void embaralhar(int lista[], int tam) {
+void embaralhar(int lista[], int tam) 
+{
     for (int i = tam - 1; i > 0; i--) {
         int j = rand() % (i + 1);
         
