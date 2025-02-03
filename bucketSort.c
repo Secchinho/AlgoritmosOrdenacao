@@ -36,7 +36,7 @@ void bucketsort(int *vetor, int n)
         comp++;
         int idx = vetor[i] / (maior / numeroBaldes + 1);
         
-        if(bal[idx].topo < 24)
+        if(bal[idx].topo < 10)
         {
             bal[idx].balde[bal[idx].topo++] = vetor[i];
         }
