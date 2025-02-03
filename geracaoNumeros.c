@@ -3,6 +3,16 @@
 #include <time.h>
 #include <string.h>
 
+void embaralhar(int lista[], int tam) {
+    for (int i = tam - 1; i > 0; i--) {
+        int j = rand() % (i + 1);
+        
+        int temp = lista[i];
+        lista[i] = lista[j];
+        lista[j] = temp;
+    }
+}
+
 void ordemAleatoria(int tam)
 {
     srand(time(NULL)); // Inicializa a semente do gerador de numeros aleatórios
@@ -39,11 +49,15 @@ void ordemAleatoria(int tam)
         printf("\nTamanho invalido!\n");
     }
     
+    int numeroRandom[tam];
+    for (int i = 0; i < tam; i++) {
+        numeroRandom[i] = i + 1;
+    }
+    embaralhar(numeroRandom, tam);
 
     for (int i = 0; i < tam; i++)
     {
-        int numeroRandom = rand() % (tam + 1);
-        if (fprintf(arqRand, "%d\n", (int)numeroRandom) < 0)
+        if (fprintf(arqRand, "%d\n", (int)numeroRandom[i]) < 0)
         {
             printf("Erro ao escrever no arquivo\n");
             fclose(arqRand);
