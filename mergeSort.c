@@ -21,10 +21,7 @@ void intercalar(int *vetor, int inicio, int fim, int meio, long long int *comp, 
     }
     for (i = inicio; i <= fim; i++)
     {
-        if(vetor[i] != tmp[i - inicio])
-        {
-            (*troca)++;
-        }
+        (*troca)++;
         vetor[i] = tmp[i - inicio];
     }
 }
