@@ -3,13 +3,12 @@
 #include <stdbool.h>
 #include <time.h>
 
-int maiorNumero(int *vetor, int n, long long int *comp)
+int maiorNumero(int *vetor, int n)
 {
     int maior = vetor[0];
 
     for(int i = 1; i < n; i++)
-    {
-        (*comp)++;
+        {
         if(maior < vetor[i])
         {
             maior = vetor[i];
@@ -19,7 +18,7 @@ int maiorNumero(int *vetor, int n, long long int *comp)
     return maior;
 }
 
-void contagem(int *vetor, int n, int exp, long long int *comp, long long int *troca)
+void contagem(int *vetor, int n, int exp, long long int *troca)
 {
     int saida[n];
 
@@ -43,10 +42,7 @@ void contagem(int *vetor, int n, int exp, long long int *comp, long long int *tr
 
     for(int i = 0; i < n; i++)
     {
-        if(vetor[i] != saida[i])
-        {
-            (*troca)++; 
-        }
+        (*troca)++;
         vetor[i] = saida[i];
     }
 }
@@ -58,11 +54,11 @@ void radixsort(int *vetor, int n)
     long long int comp = 0;
     long long int troca = 0;
 
-    int maior = maiorNumero(vetor, n, &comp);
+    int maior = maiorNumero(vetor, n);
 
     for(int exp = 1; maior / exp > 0; exp *= 10)
     {
-        contagem(vetor, n, exp, &comp, &troca);
+        contagem(vetor, n, exp, &troca);
     }
 
     end = clock();
