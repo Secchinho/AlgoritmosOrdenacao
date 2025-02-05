@@ -38,11 +38,11 @@ void quickSortCentro(int *vetor, int esquerda, int direita, long long int *comp,
     particao(vetor, esquerda, direita, &i, &j, comp, troca);
     if (i < direita)
     {
-        ordena(vetor, i, direita, comp, troca);
+        quickSortCentro(vetor, i, direita, comp, troca);
     }
     if (j > esquerda)
     {
-        ordena(vetor, esquerda, j, comp, troca);
+        quickSortCentro(vetor, esquerda, j, comp, troca);
     }
 }
 
