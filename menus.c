@@ -116,7 +116,7 @@ void menuOrdenacao(int tamanho)
         break;
     case 9:
         // QuickSort Centro
-        quicksortCentro(vetor, 0, tamanho);
+        contadorQuicksortCentro(vetor, 0, tamanho);
         saida(vetor, tamanho, "QuicksortCentro");
         break;
     case 10:
