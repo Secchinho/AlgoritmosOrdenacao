@@ -32,7 +32,7 @@ void particao(int *vetor, int esquerda, int direita, int *i, int *j, long long i
     }
 }
 
-void ordena(int *vetor, int esquerda, int direita, long long int *comp, long long int *troca)
+void quickSortCentro(int *vetor, int esquerda, int direita, long long int *comp, long long int *troca)
 {
     int i, j;
     particao(vetor, esquerda, direita, &i, &j, comp, troca);
@@ -46,7 +46,7 @@ void ordena(int *vetor, int esquerda, int direita, long long int *comp, long lon
     }
 }
 
-void quicksortCentro(int *vetor, int esquerda, int direita)
+void ContadorQuickSortCentro(int *vetor, int esquerda, int direita)
 {
     clock_t start, end;
     start = clock();
