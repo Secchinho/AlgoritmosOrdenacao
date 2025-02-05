@@ -46,13 +46,13 @@ void quickSortCentro(int *vetor, int esquerda, int direita, long long int *comp,
     }
 }
 
-void ContadorQuickSortCentro(int *vetor, int esquerda, int direita)
+void contadorQuickSortCentro(int *vetor, int esquerda, int direita)
 {
     clock_t start, end;
     start = clock();
     long long int comp = 0;
     long long int troca = 0;
-    ordena(vetor, esquerda, direita, &comp, &troca);
+    quickSortCentro(vetor, esquerda, direita, &comp, &troca);
     end = clock();
     printf("\nQuicksort Centro com %d elementos\nQuantidade de Comparacoes: %lld\nQuantidade de Trocas: %lld\nTempo de execucao: %f segundos\n\n", direita, comp, troca, ((double)(end - start)) / CLOCKS_PER_SEC);
 }
