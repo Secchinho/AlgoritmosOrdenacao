@@ -54,7 +54,6 @@ void bucketsort(int *vetor, int n)
     {
         for (int k = 0; k < bal[j].topo; k++)
         {
-            comp++;
             troca++;
             vetor[i++] = bal[j].balde[k];
         }
